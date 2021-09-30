@@ -8,12 +8,15 @@ export default function NavigationBar() {
         <div>
            <Navbar bg="light" sticky="top" expand="lg">
   <Container>
-    <Navbar.Brand className="title" href="#home">Manha Shanti</Navbar.Brand>
+    <Navbar.Brand className="title" href="/home">Manha Shanti</Navbar.Brand>
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Podcasts</Nav.Link>
-        <Nav.Link href="#link">Music</Nav.Link>
+        <Nav.Link href="/home">Home</Nav.Link>
+        <Nav.Link href="/podcast">Podcasts</Nav.Link>
+        <Nav.Link href="/music">Music</Nav.Link>
+     
+        <Nav.Link href="/diary">Diary</Nav.Link>
+        <Nav.Link href="/">Sign In</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

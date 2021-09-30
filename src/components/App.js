@@ -2,22 +2,30 @@ import SignUp from "./SignUp";
 import Home from "./Home";
 import React from "react";
 import Navbar from "./Navbar";
+import Music from "./Music";
+import Podcast from "./Podcast"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <div className="App">
       <Navbar/>
+      <div className="App">
         <Switch>
-          <Route path="/">
-            
-            <SignUp />
+          <Route exact path="/">
+            <SignUp/>
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home/>
           </Route>
-        </Switch>
+          <Route exact path="/music">
+           <Music/>
+          </Route>
+          <Route exact path="/podcast">
+           <Podcast/>
+          </Route>
+          
+        </Switch> 
       </div>
     </Router>
   );
