@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sign-up{
+  width: 50vh;
+  margin: auto;
+  margin-top: 10%;
+}
+#email{
+  margin-bottom: 5px;
+}
+#password{
+  margin-bottom: 5px;
+}
+#password-confirm{
+  margin-bottom: 10px;
+}
+
+.me-auto{
+  margin-left: auto;
+}
+.container{
+  margin-left: 10px;
+}
