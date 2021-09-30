@@ -11,11 +11,10 @@ export default function NavigationBar() {
     <Navbar.Brand className="title" href="/home">Manha Shanti</Navbar.Brand>
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="/podcast">Podcasts</Nav.Link>
-        <Nav.Link href="/music">Music</Nav.Link>
-     
-        <Nav.Link href="/diary">Diary</Nav.Link>
+        <Nav.Link className="home" href="/home">Home</Nav.Link>
+        <Nav.Link className="podcast" href="/podcast">Podcasts</Nav.Link>
+        <Nav.Link className="music" href="/music">Music</Nav.Link>
+        <Nav.Link className="diary" href="/diary">Diary</Nav.Link>
         <Nav.Link className="sign-in" href="/login">Login</Nav.Link>
       </Nav>
     </Navbar.Collapse>
