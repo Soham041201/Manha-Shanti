@@ -29,8 +29,11 @@ code {
 }
 
 .me-auto{
-  margin-left: auto;
+  margin-left : auto;
 }
 .container{
   margin-left: 10px;
+}
+.sign-in{
+  text-align:right;
 }

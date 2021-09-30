@@ -16,7 +16,7 @@ export default function NavigationBar() {
         <Nav.Link href="/music">Music</Nav.Link>
      
         <Nav.Link href="/diary">Diary</Nav.Link>
-        <Nav.Link href="/">Sign In</Nav.Link>
+        <Nav.Link className="sign-in" href="/login">Login</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

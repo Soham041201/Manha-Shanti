@@ -31,7 +31,7 @@ export default function SignUp() {
     <div className="sign-up">
       <Card>
         <Card.Body>
-          <h2 className="text-center mb4-4">Sign Up</h2>
+          <h2 className="text-center mb4-4">Register</h2>
           <Form>
             <Form.Group id="email">
             <Form.Label>Email</Form.Label>
