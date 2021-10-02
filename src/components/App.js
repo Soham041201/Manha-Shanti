@@ -7,7 +7,7 @@ import Podcast from "./Podcast"
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import Login from "./Login";
 import {useState} from 'react'
-
+import Team from "./Team"
 
 function App() {
   const [login, setlogin] = useState(false)
@@ -24,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/music">
            <Music/>
+          </Route>
+          <Route exact path="/team">
+           <Team/>
           </Route>
           <Route exact path="/podcast">
            <Podcast/>
