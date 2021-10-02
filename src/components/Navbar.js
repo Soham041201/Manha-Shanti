@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
   { name: 'Home', href: '/home', current: true },
-  { name: 'Team', href: '/', current: false },
+  { name: 'Team', href: '/team', current: false },
   { name: 'Podcasts', href: '/podcasts', current: false },
   { name: 'Music', href: '/music', current: false },
   { name: 'Diary', href: '/diary', current: false },
@@ -56,14 +56,6 @@ export default function Example() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
@@ -71,7 +63,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                         alt=""
                       />
                     </Menu.Button>
@@ -89,30 +81,30 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
                           </a>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
+                          </a>
+                        )}
+                      </Menu.Item> */}
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="/"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Register
                           </a>
                         )}
                       </Menu.Item>
