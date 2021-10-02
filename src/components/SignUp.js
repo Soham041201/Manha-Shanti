@@ -1,16 +1,33 @@
 
 import React,{useRef, useState} from "react";
 import app from '../firebase/firebase'
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { Form, Button, Card } from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import firebase from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import App from './App'
 export default function SignUp() {
-
+   
+    const page= useHistory()
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const [errorMessage,setErrorMessage] = useState()
+    const docData = {
+      stringExample: "Hello world!",
+      booleanExample: true,
+      numberExample: 3.14159265,
+      dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
+      arrayExample: [5, true, "hello"],
+      nullExample: null,
+      objectExample: {
+          a: 5,
+          b: {
+              nested: "foo"
+          }
+      }
+  };
+  
     function handleSignIn(e){
       
         e.preventDefault();
@@ -18,8 +35,9 @@ export default function SignUp() {
         if(passwordConfirmRef.current.value===passwordRef.current.value){
           createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
           .then((userCredential) => {
-            const user = userCredential.user;
             
+            const user = userCredential.user;
+            page.push("/home")
           })
           .catch((error) => {
             const errorCode = error.code;

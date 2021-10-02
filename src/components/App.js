@@ -6,7 +6,7 @@ import Music from "./Music";
 import Podcast from "./Podcast"
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import Login from "./Login";
-import {useState,useEffect} from 'react'
+
 import Team from "./Team"
 
 function App() {
