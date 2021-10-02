@@ -17,7 +17,12 @@ code {
     monospace;
 }
 
-.sign-up{
+.sign-up {
+  width: 50vh;
+  margin: auto;
+  margin-top: 10%;
+}
+.login {
   width: 50vh;
   margin: auto;
   margin-top: 10%;
@@ -40,4 +45,12 @@ code {
 }
 .sign-in{
   text-align:right;
+}
+
+.error{
+  background-color: rgb(59, 127, 172);
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
 }

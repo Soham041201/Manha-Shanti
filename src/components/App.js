@@ -4,19 +4,23 @@ import React from "react";
 import Navbar from "./Navbar";
 import Music from "./Music";
 import Podcast from "./Podcast"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
+import Login from "./Login";
+import {useState} from 'react'
+
 
 function App() {
+  const [login, setlogin] = useState(false)
   return (
     <Router>
       <Navbar/>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <SignUp/>
+            <Login/>
           </Route>
           <Route exact path="/home">
-            <Home/>
+            {login ?<Home/> : <Redirect to="/"/>}
           </Route>
           <Route exact path="/music">
            <Music/>
@@ -24,7 +28,9 @@ function App() {
           <Route exact path="/podcast">
            <Podcast/>
           </Route>
-          
+          <Route exact path="/register">
+           <SignUp/>
+          </Route>
         </Switch> 
       </div>
     </Router>
