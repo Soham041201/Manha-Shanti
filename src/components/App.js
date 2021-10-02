@@ -24,7 +24,7 @@ function App() {
             <Login/>
           </Route>
           <Route exact path="/home">
-           { user ? <Home/>:<Redirect to="/"/>}
+           <Home/>
           </Route>
           <Route exact path="/music">
            <Music/>
