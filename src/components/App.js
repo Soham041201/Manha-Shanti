@@ -6,11 +6,15 @@ import Music from "./Music";
 import Podcast from "./Podcast"
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import Login from "./Login";
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Team from "./Team"
 
 function App() {
-  const [login, setlogin] = useState(false)
+  
+   var user = localStorage.getItem("isLogin")
+     
+
+
   return (
     <Router>
       <Navbar/>
@@ -20,7 +24,7 @@ function App() {
             <Login/>
           </Route>
           <Route exact path="/home">
-            {login ?<Home/> : <Redirect to="/"/>}
+           { user ? <Home/>:<Redirect to="/"/>}
           </Route>
           <Route exact path="/music">
            <Music/>

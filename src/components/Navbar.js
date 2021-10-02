@@ -1,10 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
+import app from '../firebase/firebase'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-
+import { getAuth, signOut } from "firebase/auth";
+import {useHistory} from "react-router-dom"
 const navigation = [
-  { name: 'Home', href: '/home', current: true },
+  { name: 'Home', href: '/home', current: false },
   { name: 'Team', href: '/team', current: false },
   { name: 'Podcasts', href: '/podcasts', current: false },
   { name: 'Music', href: '/music', current: false },
@@ -15,7 +17,18 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 export default function Example() {
+  const page= useHistory()
+  function handleLogout(){
+    const auth = getAuth(app);
+    signOut(auth).then(() => {
+      localStorage.setItem("isLogin",false);
+      page.push("/")
+    }).catch((error) => {
+   console.log(error);
+    });
+  }
   return (
     <Disclosure as="nav" className="bg-blue-300">
       {({ open }) => (
@@ -37,14 +50,14 @@ export default function Example() {
                 <div className="flex-shrink-0 flex items-center">
                   <h1 className="text-white text-2xl subpixel-antialiased font-sans">ManhaShanti</h1>
                 </div>
-                <div className="hidden sm:block sm:ml-6">
+                <div className="hidden sm:block sm:ml-6 ml-lg">
                   <div className="flex space-x-4 text-center" >
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-blue-400 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-blue-500 text-white' : 'text-white hover:bg-blue-400 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -102,9 +115,19 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="/register"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
                           >
                             Register
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            onClick={handleLogout}
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
+                          >
+                           Logout
                           </a>
                         )}
                       </Menu.Item>

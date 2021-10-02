@@ -4,8 +4,9 @@ import app from '../firebase/firebase'
 import { Form, Button, Card } from "react-bootstrap";
 import {Link} from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import App from './App'
 export default function SignUp() {
-  
+
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -17,7 +18,8 @@ export default function SignUp() {
         if(passwordConfirmRef.current.value===passwordRef.current.value){
           createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
           .then((userCredential) => {
-            const user = userCredential.user;  
+            const user = userCredential.user;
+            
           })
           .catch((error) => {
             const errorCode = error.code;
