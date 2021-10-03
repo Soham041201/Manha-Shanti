@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components; 
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
   
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 body {
@@ -55,4 +55,7 @@ code {
   text-align: center;
   border-radius: 10px;
   color: white;
+}
+#Hero{
+  font-family: 'Birthstone', cursive;
 }
