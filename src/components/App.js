@@ -6,7 +6,7 @@ import Music from "./Music";
 import Podcast from "./Podcast"
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import Login from "./Login";
-
+import Diary from "./Diary";
 import Team from "./Team"
 
 function App() {
@@ -34,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/podcast">
            <Podcast/>
+          </Route>
+          <Route exact path="/diary">
+           <Diary/>
           </Route>
           <Route exact path="/register">
            <SignUp/>

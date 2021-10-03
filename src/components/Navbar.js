@@ -8,7 +8,7 @@ import {useHistory} from "react-router-dom"
 const navigation = [
   { name: 'Home', href: '/home', current: false },
   { name: 'Team', href: '/team', current: false },
-  { name: 'Podcasts', href: '/podcasts', current: false },
+  { name: 'Podcasts', href: '/podcast', current: false },
   { name: 'Music', href: '/music', current: false },
   { name: 'Diary', href: '/diary', current: false },
 ]
