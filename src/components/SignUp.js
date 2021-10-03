@@ -13,39 +13,11 @@ export default function SignUp() {
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const [errorMessage,setErrorMessage] = useState()
-    const docData = {
-      stringExample: "Hello world!",
-      booleanExample: true,
-      numberExample: 3.14159265,
-      dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
-      arrayExample: [5, true, "hello"],
-      nullExample: null,
-      objectExample: {
-          a: 5,
-          b: {
-              nested: "foo"
-          }
-      }
-  };
+   
   
     function handleSignIn(e){
-      
         e.preventDefault();
-        const auth = getAuth(app);
-        if(passwordConfirmRef.current.value===passwordRef.current.value){
-          createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-          .then((userCredential) => {
-            
-            const user = userCredential.user;
-            page.push("/home")
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-              setErrorMessage(error.message) ;
-            // ..
-          });   
-        }
-          
+        page.push("/home")
     }
 
 

@@ -8,24 +8,18 @@ import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-do
 import Login from "./Login";
 import Diary from "./Diary";
 import Team from "./Team"
-
+import ProtectedHomeRoute from "./ProtectedHomeRoute"
+import auth from '../Auth'
 function App() {
-  
-   var user = localStorage.getItem("isLogin")
-     
-
-
   return (
     <Router>
       <Navbar/>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Login/>
+          <Login/>
           </Route>
-          <Route exact path="/home">
-           <Home/>
-          </Route>
+          <ProtectedHomeRoute exact path="/home" component={Home}/>
           <Route exact path="/music">
            <Music/>
           </Route>

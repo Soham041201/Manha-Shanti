@@ -1,9 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
-import app from '../firebase/firebase'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { getAuth, signOut } from "firebase/auth";
+import {MenuIcon, XIcon } from '@heroicons/react/outline'
+import auth from '../Auth'
 import {useHistory} from "react-router-dom"
 const navigation = [
   { name: 'Home', href: '/home', current: false },
@@ -19,15 +18,14 @@ function classNames(...classes) {
 
 
 export default function Example() {
+ 
   const page= useHistory()
-  function handleLogout(){
-    const auth = getAuth(app);
-    signOut(auth).then(() => {
-      localStorage.setItem("isLogin",false);
-      page.push("/")
-    }).catch((error) => {
-   console.log(error);
-    });
+  function handleLogout(e){
+    e.preventDefault();
+    auth.logout()
+    page.push("/")
+   
+    
   }
   return (
     <div className="sticky">

@@ -1,9 +1,8 @@
 
 import React,{useRef, useState} from "react";
-import app from '../firebase/firebase'
 import { Form, Button, Card } from "react-bootstrap";
 import {Link,useHistory } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import auth from '../Auth'
 export default function SignUp() {
   const [login, setlogin] = useState(false)
 
@@ -14,23 +13,9 @@ export default function SignUp() {
     const [errorMessage,setErrorMessage] = useState()
     function handleLogin(e){
         e.preventDefault();
-        const auth = getAuth(app);
-        signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-          .then((userCredential) => {
-            const user = userCredential.user; 
-            if(user.email!==null){
-              setlogin(true)
-              localStorage.setItem("isLogin",login);
-              page.push("/home")
-            }
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-              setErrorMessage(error.message) ;
-            // ..
-          });   
-        
-          
+        auth.login(emailRef.current.value, passwordRef.current.value)
+
+        page.push("/home")
     }
 
 
