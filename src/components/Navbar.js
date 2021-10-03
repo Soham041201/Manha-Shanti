@@ -2,8 +2,8 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {MenuIcon, XIcon } from '@heroicons/react/outline'
-import auth from '../Auth'
 import {useHistory} from "react-router-dom"
+import { logout } from '../Auth'
 const navigation = [
   { name: 'Home', href: '/home', current: false },
   { name: 'Team', href: '/team', current: false },
@@ -20,12 +20,9 @@ function classNames(...classes) {
 export default function Example() {
  
   const page= useHistory()
-  function handleLogout(e){
-    e.preventDefault();
-    auth.logout()
+  const handleLogout=async(e)=>{
+     await logout()
     page.push("/")
-   
-    
   }
   return (
     <div className="sticky">

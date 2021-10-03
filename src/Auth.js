@@ -1,54 +1,43 @@
-import React from 'react'
 import { getAuth, signInWithEmailAndPassword,signOut,createUserWithEmailAndPassword} from "firebase/auth";
 import app from './firebase/firebase'
-class Auth {
-    constructor(){
-        this.authenticated = false;
-    }
 
-    login(email,password){
-        var loginError
+
+    export function loginFn(email,password){
+      
         const auth = getAuth(app);
         signInWithEmailAndPassword(auth,email,password)
           .then((userCredential) => {
             const user = userCredential.user; 
-            this.authenticated = true;
-            console.log(this.authenticated);
-            return user
+            localStorage.setItem("isAuth",true)
           })
           .catch((error) => {
             const errorCode = error.code;
-                alert(error.message);
+            console.log(errorCode);
+            alert(error.message);
           });
-         
     }
-    logout(){
+    export function logout(){
         const auth = getAuth(app);
         signOut(auth).then(() => {
-            this.authenticated = false;
-            console.log(this.authenticated);
+            localStorage.clear();
         }).catch((error) => {
        console.log(error);
         });
     }
-    isAuthenticated(){
-        return this.authenticated;
-    }
 
-    register(email,password,confirmPassword) {
+  export function register(email,password,confirmPassword) {
         const auth = getAuth(app);
         if(password===confirmPassword){
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
               const user = userCredential.user;
+              localStorage.setItem("isAuth",true)
             })
             .catch((error) => {
               const errorCode = error.code;
+              console.log(errorCode);
                 alert(error.message) ;
               // ..
             });   
-          }
+        }
     }
-}
-
-export default new Auth()

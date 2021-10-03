@@ -6,6 +6,7 @@ import { Form, Button, Card } from "react-bootstrap";
 import {Link, useHistory} from "react-router-dom";
 import firebase from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { register } from "../Auth";
 export default function SignUp() {
    
     const page= useHistory()
@@ -15,8 +16,8 @@ export default function SignUp() {
     const [errorMessage,setErrorMessage] = useState()
    
   
-    function handleSignIn(e){
-        e.preventDefault();
+    const handleSignIn = async()=>{
+      await register(emailRef,passwordRef,passwordConfirmRef)
         page.push("/home")
     }
 
@@ -41,15 +42,15 @@ export default function SignUp() {
             <Form.Group id="password-confirm">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control type="password" ref={passwordConfirmRef}required />
-            
+            <Button type="button" onClick={handleSignIn} className="w-100">SignUp</Button>
             </Form.Group>
-            <Button type="submit" onClick={handleSignIn} className="w-100">SignUp</Button>
+            
           </Form>
         </Card.Body>
       </Card>
       
       <div className="w-100 text-center mt-2">
-        Already have an account ? <Link to="/">Login </Link>
+        Already have an account ? <Link to="/">Login</Link>
       </div>
     </div>
   );

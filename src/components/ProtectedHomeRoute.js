@@ -1,11 +1,11 @@
 import React from 'react'
 import {Route,Redirect} from 'react-router'
-import auth from '../Auth'
 export default function ProtectedHomeRoute({component: Component, ...rest}) {
     return (
         <Route {...rest} render={
             (props)=>{
-                if(auth.isAuthenticated()){
+                console.log(typeof localStorage.getItem("isAuth"));
+                if("true" ===localStorage.getItem("isAuth")){
                     return <Component {...props}/>
                 }
                 return <Redirect to="/"/>

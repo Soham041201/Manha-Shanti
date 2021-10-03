@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {withRouter} from 'react-router';
 const Home = () => {
     return (
         <div>
@@ -8,4 +8,4 @@ const Home = () => {
     );
 }
   
-export default Home;
+export default withRouter(Home);
