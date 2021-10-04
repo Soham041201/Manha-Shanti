@@ -5,7 +5,7 @@ import app from './firebase/firebase'
     export async function loginFn(email,password){
       
         const auth = getAuth(app);
-        signInWithEmailAndPassword(auth,email,password)
+       await signInWithEmailAndPassword(auth,email,password)
           .then((userCredential) => {
             const user = userCredential.user; 
             localStorage.setItem("isAuth",true)
@@ -17,19 +17,19 @@ import app from './firebase/firebase'
             alert(error.message);
           });
     }
-    export function logout(){
+    export async function logout(){
         const auth = getAuth(app);
-        signOut(auth).then(() => {
+      await signOut(auth).then(() => {
             localStorage.clear();
         }).catch((error) => {
        console.log(error);
         });
     }
 
-  export function register(email,password,confirmPassword) {
+  export async function register(email,password,confirmPassword) {
         const auth = getAuth(app);
         if(password===confirmPassword){
-            createUserWithEmailAndPassword(auth, email, password)
+         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
               const user = userCredential.user;
               localStorage.setItem("isAuth",true)

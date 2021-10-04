@@ -4,7 +4,7 @@ export default function ProtectedHomeRoute({component: Component, ...rest}) {
     return (
         <Route {...rest} render={
             (props)=>{
-                console.log(typeof localStorage.getItem("isAuth"));
+                 localStorage.getItem("isAuth")
                 if("true" ===localStorage.getItem("isAuth")){
                     return <Component {...props}/>
                 }

@@ -1,11 +1,7 @@
 
-import React,{useRef, useState} from "react";
-import app from '../firebase/firebase'
-import { doc, setDoc, Timestamp } from "firebase/firestore";
+import React,{useRef} from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import {Link, useHistory} from "react-router-dom";
-import firebase from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { register } from "../Auth";
 export default function SignUp() {
    
@@ -13,7 +9,6 @@ export default function SignUp() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const [errorMessage,setErrorMessage] = useState()
    
   
     const handleSignIn = async()=>{
@@ -30,7 +25,6 @@ export default function SignUp() {
           <Form>
             <Form.Group id="email">
             <div className="error">
-               <p>{errorMessage}</p>
                    </div> 
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" ref={emailRef}required/>
