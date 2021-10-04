@@ -17,7 +17,7 @@ function classNames(...classes) {
 }
 
 
-export default function Example() {
+export default function Navbar() {
  
   const page= useHistory()
   const handleLogout=async(e)=>{

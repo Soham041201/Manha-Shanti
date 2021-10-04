@@ -69,3 +69,10 @@ code {
   margin-top: -10;
   padding-top: 40px;
 }
+
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+}

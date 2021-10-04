@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 const Home = () => {
     return (
-        <div class="flex"> 
+        <div class="flex" > 
         
             <div class="w-1/2">
              <h1 class="font-bold break-normal text-left text-7xl text-white  ml-20 mt-10 p-0.5">Manha<br/>Shanti<hr class="mt-3" id="line"/></h1>
