@@ -26,7 +26,7 @@ export default function Example() {
   }
   return (
     <div className="sticky">
-    <Disclosure as="nav" className="bg-purple-300 ">
+    <Disclosure as="nav" className="bg-olive green-300 ">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
