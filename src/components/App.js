@@ -15,25 +15,13 @@ function App() {
       <Navbar/>
       <div className="App">
         <Switch>
-          <Route exact path="/">
-          <Login/>
-          </Route>
+          <Route exact path="/" component={Login}/>
           <ProtectedHomeRoute exact path="/home" component={Home}/>
-          <Route exact path="/music">
-           <Music/>
-          </Route>
-          <Route exact path="/team">
-           <Team/>
-          </Route>
-          <Route exact path="/podcast">
-           <Podcast/>
-          </Route>
-          <Route exact path="/diary">
-           <Diary/>
-          </Route>
-          <Route exact path="/register">
-           <SignUp/>
-          </Route>
+          <Route exact path="/music" component={Music}/>
+          <Route exact path="/team" component={Team}/>
+          <Route exact path="/podcast" component={Podcast}/>
+          <Route exact path="/diary" component={Diary}/>
+          <Route exact path="/register" component={SignUp}/>
         </Switch> 
       </div>
     </Router>
