@@ -59,3 +59,9 @@ code {
 #Hero{
   font-family: 'Birthstone', cursive;
 }
+
+#line {
+  height: 3px;
+;
+  background-color:white;
+}
