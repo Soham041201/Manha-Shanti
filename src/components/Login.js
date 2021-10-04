@@ -1,5 +1,5 @@
 
-import React,{useRef, useState} from "react";
+import React,{useRef} from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import {Link,useHistory } from "react-router-dom";
 import { loginFn } from '../Auth'
@@ -8,9 +8,8 @@ export default function SignUp() {
     const page= useHistory()
     const emailRef = useRef()
     const passwordRef = useRef()
-  const handleLogin =async(e)=>{
-    
-        await loginFn(emailRef.current.value, passwordRef.current.value,page)
+  const handleLogin =(e)=>{
+        loginFn(emailRef.current.value, passwordRef.current.value,page)
         page.push("/home")
     }
 

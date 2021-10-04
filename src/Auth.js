@@ -2,13 +2,14 @@ import { getAuth, signInWithEmailAndPassword,signOut,createUserWithEmailAndPassw
 import app from './firebase/firebase'
 
 
-    export function loginFn(email,password){
+    export async function loginFn(email,password){
       
         const auth = getAuth(app);
         signInWithEmailAndPassword(auth,email,password)
           .then((userCredential) => {
             const user = userCredential.user; 
             localStorage.setItem("isAuth",true)
+            console.log(JSON.stringify(user)); 
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -32,6 +33,8 @@ import app from './firebase/firebase'
             .then((userCredential) => {
               const user = userCredential.user;
               localStorage.setItem("isAuth",true)
+              console.log(JSON.stringify(user));
+
             })
             .catch((error) => {
               const errorCode = error.code;

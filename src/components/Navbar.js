@@ -30,7 +30,7 @@ export default function Example() {
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="sticky flex items-center justify-between h-16">
+            <div className="sticky flex items-center justify-between h-24">
               <div className=" flex relative inset-y-3 left-0  items-center  sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -47,7 +47,7 @@ export default function Example() {
                   <h1 className="text-white text-6xl subpixel-antialiased" id="Hero">Manha Shanti</h1>
                 </div>
                 <div className="hidden sm:block sm:ml-6 ml-lg">
-                  <div className="flex space-x-4 text-center mt-3 ml-" >
+                  <div className="flex space-x-4 text-center mt-3 nav-links" >
                     {navigation.map((item) => (
                       <a
                         key={item.name}
