@@ -9,11 +9,13 @@ export default function SignUp() {
 	const[password,setPassword] = useState("")
   const handleLogin =(e)=>{
     	e.preventDefault();
-        loginFn(email, password)
-        page.push("/home")
+        loginFn(email, password).then(()=>{
+			if(loginFn(email, password)!==null){
+				page.push("/home")
+			}
+		})
+        
     }
-
-
   return (
     <div className="login mt-5">
 <div class="flex justify-center items-center">

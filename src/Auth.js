@@ -15,6 +15,7 @@ import app from './firebase/firebase'
             const errorCode = error.code;
             console.log(errorCode);
             alert(error.message);
+            throw error.message;
           });
     }
     export async function logout(){
@@ -39,7 +40,8 @@ import app from './firebase/firebase'
             .catch((error) => {
               const errorCode = error.code;
               console.log(errorCode);
-                alert(error.message) ;
+                alert(error.message)
+                throw error.message;
               // ..
             });   
         }

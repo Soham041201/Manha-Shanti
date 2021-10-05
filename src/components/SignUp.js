@@ -10,8 +10,10 @@ export default function SignUp() {
   const[confirmPassword,setConfirmPassword] = useState("")
   const handleRegister =(e)=>{
     	e.preventDefault();
-       register(email,password,confirmPassword)
-        page.push("/home")
+       	register(email,password,confirmPassword).then(()=>{
+		page.push("/home")
+	   })
+        
     }
 
 
@@ -28,12 +30,12 @@ export default function SignUp() {
 			<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email Addres" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
 			<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
       <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
-			<button class="py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-400 rounded-2xl"  href="/home" type="submit">Register</button>
+			<button class="py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-400 rounded-2xl"  type="submit">Register</button>
 			</form>
 	</div>
 			<div class="text-center mt-6">
 				
-				<p class="mt-4 text-sm">Dont have an account? <span class="underline cursor-pointer"> <Link to="/">Login</Link> </span>
+				<p class="mt-4 text-sm">Already have an account?  <span class="underline cursor-pointer"> <Link to="/">Login</Link> </span>
 				</p>
 			</div>
 		</div>
