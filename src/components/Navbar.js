@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment,useState,useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {MenuIcon, XIcon } from '@heroicons/react/outline'
 import {useHistory} from "react-router-dom"
@@ -16,11 +16,20 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
 export default function Navbar() {
- 
+
+  const[email,setEmail] = useState("")
+  useEffect(async()=> {
+    var data = localStorage.getItem("user")
+    const user= JSON.parse(data)
+    if(user!==null){
+    setEmail(`Welcome, ${user.email}`)
+    }
+  },)
+  
   const page= useHistory()
   const handleLogout=async(e)=>{
+    localStorage.clear()
      await logout()
     page.push("/")
   }
@@ -66,6 +75,7 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
+                <p className="text-white">{email}</p>
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -76,6 +86,7 @@ export default function Navbar() {
                         alt=""
                       />
                     </Menu.Button>
+                 
                   </div>
                   <Transition
                     as={Fragment}
@@ -97,16 +108,6 @@ export default function Navbar() {
                           </a>
                         )}
                       </Menu.Item>
-                      {/* <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
                           <a

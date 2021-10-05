@@ -9,13 +9,17 @@ import app from './firebase/firebase'
           .then((userCredential) => {
             const user = userCredential.user; 
             localStorage.setItem("isAuth",true)
-            console.log(JSON.stringify(user)); 
+            const data = JSON.stringify(user)
+            localStorage.setItem("user",data); 
           })
           .catch((error) => {
             const errorCode = error.code;
             console.log(errorCode);
-            alert(error.message);
-            throw error.message;
+            if(error.message !== "Firebase: Error (auth/network-request-failed)."){
+              alert(error.message);
+              throw error.message;
+            }
+            
           });
     }
     export async function logout(){
@@ -35,7 +39,7 @@ import app from './firebase/firebase'
               const user = userCredential.user;
               localStorage.setItem("isAuth",true)
               console.log(JSON.stringify(user));
-
+              localStorage.setItem("user",user); 
             })
             .catch((error) => {
               const errorCode = error.code;

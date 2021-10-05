@@ -1,6 +1,17 @@
-import React from 'react';
+
+import React,{useEffect} from 'react';
 import {withRouter} from 'react-router';
+
+
 const Home = () => {
+   
+  useEffect(() => {
+    if(!window.location.hash) {
+      
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+  },[]) 
     return (
         <div class="flex" > 
         
