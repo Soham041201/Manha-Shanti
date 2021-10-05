@@ -13,7 +13,7 @@ const Home = () => {
              <img className="p-20 rounded-full"id="img" src ="./images/img1.jpg"alt=""/> 
             </div>
 
-            {/* <p class= "text-center text-white ml-10 mt-10 p-1.5">Diary | Podcasts | Music</p> */}
+        
             
         </div>
         

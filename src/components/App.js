@@ -9,6 +9,7 @@ import Login from "./Login";
 import Diary from "./Diary";
 import Team from "./Team"
 import ProtectedHomeRoute from "./ProtectedHomeRoute"
+import Footer from "./Footer";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/register" component={SignUp}/>
         </Switch> 
       </div>
+      <Footer/>
     </Router>
   );
 }
