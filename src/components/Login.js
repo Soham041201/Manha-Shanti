@@ -28,7 +28,7 @@ export default function SignUp() {
 			<form onSubmit={handleLogin}>
 			<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email Addres" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
 			<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
-			<button class="py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-400 rounded-2xl"  href="/home" type="submit">Login</button>
+			<button class="transition duration-500 ease-in-out hover:bg-purple-400 tranform hover:-translate-y-1 hover:scale-110  py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-700 rounded-2xl"  href="/home" type="submit">Login</button>
 			</form>
 	</div>
 			<div class="text-center mt-6">
