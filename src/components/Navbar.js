@@ -125,7 +125,7 @@ export default function Navbar() {
                             onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
                           >
-                           Logout
+                           {email?"Logout":"Login"}
                           </a>
                         )}
                       </Menu.Item>

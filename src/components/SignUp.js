@@ -2,15 +2,30 @@
 import React,{useState} from "react";
 import {Link,useHistory } from "react-router-dom";
 import {register } from '../Auth'
+import { collection, addDoc } from "firebase/firestore"; 
+import {db} from '../firebase/firebase'
 export default function SignUp() {
 
     const page= useHistory()
+	const [name,setName] = useState("")
+	const [surname,setsurname] = useState("")
+	const [mobileNumber, setMobilenumber] = useState()
 	const[email,setEmail] = useState("")
 	const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
   const handleRegister =(e)=>{
     	e.preventDefault();
-       	register(email,password,confirmPassword).then(()=>{
+       	register(email,password,confirmPassword).then(async ()=>{
+			try {
+				const docRef = await addDoc(collection(db, "users"), {
+				  firstName: {name},
+				  lastName: {surname},
+				  CellNumber: {mobileNumber}
+				});
+				localStorage.setItem("id",docRef.id)
+			  } catch (e) {
+				console.error("Error adding document: ", e);
+			  }
 		page.push("/home")
 	   })
         
@@ -27,6 +42,9 @@ export default function SignUp() {
 		</div>
 		<div class="space-y-4">
 			<form onSubmit={handleRegister}>
+			<input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="First Name" className="flex-inline text-sm py-3 px-4 mb-2 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
+			<input type="text" value={surname} onChange={(e)=>setsurname(e.target.value)} placeholder="Last Name" className="flex-inline text-sm py-3 px-4 mb-2 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
+			<input type="text" value={mobileNumber} onChange={(e)=>setMobilenumber(e.target.value)} placeholder="Mobile number" className="block text-sm py-3 px-4 mb-2 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />	
 			<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email Addres" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
 			<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
       <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />

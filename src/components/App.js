@@ -10,6 +10,7 @@ import Diary from "./Diary";
 import Team from "./Team"
 import ProtectedHomeRoute from "./ProtectedHomeRoute"
 import Footer from "./Footer";
+import Profile from "./Profile";
 function App() {
   return (
     <Router>
@@ -17,12 +18,13 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Login}/>
-          <ProtectedHomeRoute exact path="/home" component={Home}/>
+          <ProtectedHomeRoute exact path="/profile" component={Profile}/>
           <Route exact path="/music" component={Music}/>
           <Route exact path="/team" component={Team}/>
           <Route exact path="/podcast" component={Podcast}/>
           <Route exact path="/diary" component={Diary}/>
           <Route exact path="/register" component={SignUp}/>
+          <Route exact path="/home" component={Home}/>
         </Switch> 
       </div>
       <Footer/>

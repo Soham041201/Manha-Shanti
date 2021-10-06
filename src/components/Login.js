@@ -2,6 +2,7 @@
 import React,{useState} from "react";
 import {Link,useHistory } from "react-router-dom";
 import { loginFn } from '../Auth'
+
 export default function SignUp() {
 
     const page= useHistory()
@@ -9,9 +10,11 @@ export default function SignUp() {
 	const[password,setPassword] = useState("")
   const handleLogin =(e)=>{
     	e.preventDefault();
-        loginFn(email, password).then(()=>{
+        loginFn(email, password).then(async ()=> {
 			if(loginFn(email, password)!==null){
+				
 				page.push("/home")
+			
 			}
 		})
         

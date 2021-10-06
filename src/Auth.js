@@ -38,8 +38,8 @@ import app from './firebase/firebase'
             .then((userCredential) => {
               const user = userCredential.user;
               localStorage.setItem("isAuth",true)
-              console.log(JSON.stringify(user));
-              localStorage.setItem("user",user); 
+              const data = JSON.stringify(user)
+              localStorage.setItem("user",data); 
             })
             .catch((error) => {
               const errorCode = error.code;
