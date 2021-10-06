@@ -3,6 +3,8 @@ import { Fragment,useState,useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {MenuIcon, XIcon } from '@heroicons/react/outline'
 import {useHistory} from "react-router-dom"
+import { doc, getDoc } from "firebase/firestore"
+import {db} from '../firebase/firebase'
 import { logout } from '../Auth'
 const navigation = [
   { name: 'Home', href: '/home', current: false },
@@ -18,13 +20,22 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  const[email,setEmail] = useState("")
+  const[fname,setfName] = useState("")
   useEffect(async()=> {
     var data = localStorage.getItem("user")
     const user= JSON.parse(data)
     if(user!==null){
-    setEmail(`Welcome, ${user.email}`)
+      const docRef = doc(db, "users",user.email)
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+          console.log(docSnap.data());
+          setfName(`Welcome, ${docSnap.data().firstName.name}`)
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
     }
+    
   },)
   
   const page= useHistory()
@@ -75,7 +86,7 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <p className="text-white">{email}</p>
+                <p className="text-white">{fname}</p>
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -111,21 +122,11 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/register"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
-                          >
-                            Register
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
                           href="/"
                             onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
                           >
-                           {email?"Logout":"Login"}
+                           {fname?"Logout":"Login"}
                           </a>
                         )}
                       </Menu.Item>

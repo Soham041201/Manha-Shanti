@@ -2,7 +2,7 @@
 import React,{useState} from "react";
 import {Link,useHistory } from "react-router-dom";
 import {register } from '../Auth'
-import { collection, addDoc, doc,setDoc} from "firebase/firestore"; 
+import {doc,setDoc} from "firebase/firestore"; 
 import {db} from '../firebase/firebase'
 export default function SignUp() {
 
