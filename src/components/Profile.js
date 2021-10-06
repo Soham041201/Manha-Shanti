@@ -2,12 +2,18 @@ import React,{useEffect,useState} from 'react'
 import { doc, getDoc } from "firebase/firestore"
 import {db} from '../firebase/firebase'
 export default function Profile(){
-    const id = localStorage.getItem("id")
-    const docRef = doc(db, "users",id);
+   
+   ;
     const [mobile,setMobile] =useState()
     const [name,setName] = useState()
-    const [surname,setSurname] = useState()   
+    const [surname,setSurname] = useState()
+    
+    
 useEffect(async () => {
+    
+    var data = localStorage.getItem("user")
+    const user= JSON.parse(data)
+    const docRef = doc(db, "users",user.email)
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             console.log(docSnap.data());

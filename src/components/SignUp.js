@@ -2,7 +2,7 @@
 import React,{useState} from "react";
 import {Link,useHistory } from "react-router-dom";
 import {register } from '../Auth'
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, doc,setDoc} from "firebase/firestore"; 
 import {db} from '../firebase/firebase'
 export default function SignUp() {
 
@@ -17,12 +17,14 @@ export default function SignUp() {
     	e.preventDefault();
        	register(email,password,confirmPassword).then(async ()=>{
 			try {
-				const docRef = await addDoc(collection(db, "users"), {
-				  firstName: {name},
+			
+				await setDoc(doc(db, "users", `${email}`), {
+					firstName: {name},
 				  lastName: {surname},
 				  CellNumber: {mobileNumber}
-				});
-				localStorage.setItem("id",docRef.id)
+				  });
+				  
+				// localStorage.setItem("id",docRef.id)
 			  } catch (e) {
 				console.error("Error adding document: ", e);
 			  }
