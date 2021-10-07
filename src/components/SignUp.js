@@ -4,6 +4,7 @@ import {Link,useHistory } from "react-router-dom";
 import {register } from '../Auth'
 import {doc,setDoc} from "firebase/firestore"; 
 import {db} from '../firebase/firebase'
+import UploadAndDisplayImage from './ImagePicker'
 export default function SignUp() {
 
     const page= useHistory()
@@ -50,6 +51,7 @@ export default function SignUp() {
 			<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email Addres" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500" />
 			<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
       <input type="password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Confirm Password" className="block text-sm py-3 px-4 rounded-lg w-full border focus:outline-none focus:ring focus:border-blue-500 mt-2" />
+	  <UploadAndDisplayImage/>
 			<button class="py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-400 rounded-2xl"  type="submit">Register</button>
 			</form>
 	</div>
