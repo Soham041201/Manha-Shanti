@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import {db} from '../firebase/firebase'
 import { logout } from '../Auth'
+import Loading from './Loading'
 const navigation = [
   { name: 'Home', href: '/home', current: false },
   { name: 'Team', href: '/team', current: false },
@@ -86,7 +87,7 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <p className="text-white">{fname}</p>
+                {fname?<p className="text-white">{fname}</p>:<Loading/>}
                 <Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">

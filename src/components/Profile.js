@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { doc, getDoc } from "firebase/firestore"
 import {db} from '../firebase/firebase'
+import Loading from './Loading'
 export default function Profile(){
    
    
@@ -30,11 +31,15 @@ useEffect(async () => {
 },[])
     
     
-    return (
+    return (       
         <div>
+            {name?<div className="profile-data">
             <h1>{`Full Name: ${name} ${surname}`}</h1>
             <h1>Mobile Number {mobile}</h1>
             <h1>Profile Page</h1>
-        </div>
-    )
+            </div>:<Loading/>}
+            
+            
+            </div>
+        )
 }
