@@ -7,7 +7,7 @@ export default function App() {
 
   function handleChange(e) {
     debugger;
-    setFile(e.target.files[0]);
+    setFile(e.target.files[0])
   }
 
   function handleUpload(e) {
@@ -31,8 +31,8 @@ export default function App() {
     <div>
       <form onSubmit={handleUpload}>
         <input type="file" onChange={handleChange} />
-        <button onClick={handleUpload} disabled={!file}>
-          upload to firebase
+        <button className ="text-blue-500" onClick={handleUpload} disabled={!file}>
+          Upload your Image to manha shanti
         </button>
       </form>
       <img src={url} alt="" />
