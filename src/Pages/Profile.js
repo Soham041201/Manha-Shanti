@@ -34,8 +34,8 @@ useEffect(async () => {
     
     
     return (       
-        <div>
-            {name?<div className="profile-data">
+        <div className="h-full w-full">
+            {image?<div className="profile-data">
             <h1>{`Full Name: ${name} ${surname}`}</h1>
             <h1>Mobile Number {mobile}</h1>
             <h1>Profile Page</h1>
