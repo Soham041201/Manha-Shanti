@@ -21,6 +21,7 @@ function classNames(...classes) {
 export default function Navbar() {
 
   const[fname,setfName] = useState("")
+  const[image,setImage] = useState("")
   useEffect(async()=> {
     var data = localStorage.getItem("user")
     const user= JSON.parse(data)
@@ -30,6 +31,7 @@ export default function Navbar() {
       if (docSnap.exists()) {
           console.log(docSnap.data());
           setfName(`Welcome, ${docSnap.data().firstName.name}`)
+          setImage(docSnap.data().DisplayImage)
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
@@ -93,7 +95,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                        src={fname? image :"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
                         alt=""
                       />
                     </Menu.Button>

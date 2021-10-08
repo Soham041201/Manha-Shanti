@@ -1,31 +1,41 @@
 import React, { useState } from "react";
+import { storage } from "../firebase/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+export default function App() {
+  const [file, setFile] = useState(null);
+  const [url, setURL] = useState("");
 
-const UploadAndDisplayImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  
+  function handleChange(e) {
+    debugger;
+    setFile(e.target.files[0]);
+  }
+
+  function handleUpload(e) {
+    e.preventDefault();
+    const refer = ref(storage, `/images/${file.name}`);
+    uploadBytes(refer, file)
+      .then((snapshot) => {
+        debugger;
+        console.log("Uploaded a blob or file!");
+      })
+      .then(() => {
+        getDownloadURL(ref(storage, `images/${file.name}`)).then((url) => {
+          console.log(url);
+          localStorage.setItem("UserImage",url)
+          setURL(url);
+        });
+      });
+  }
+
   return (
     <div>
-      <h1>Upload and Display </h1>
-      {selectedImage && (
-        <div>
-        <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
-        <br />
-        <button onClick={()=>setSelectedImage(null)}>Remove</button>
-        </div>
-      )}
-      <br />
-     
-      <br /> 
-      <input
-        type="file"
-        name="myImage"
-        onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
-      />
+      <form onSubmit={handleUpload}>
+        <input type="file" onChange={handleChange} />
+        <button onClick={handleUpload} disabled={!file}>
+          upload to firebase
+        </button>
+      </form>
+      <img src={url} alt="" />
     </div>
   );
-};
-
-export default UploadAndDisplayImage;
+}

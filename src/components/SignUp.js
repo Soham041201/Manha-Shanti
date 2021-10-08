@@ -22,7 +22,9 @@ export default function SignUp() {
 				await setDoc(doc(db, "users", `${email}`), {
 					firstName: {name},
 				  lastName: {surname},
-				  CellNumber: {mobileNumber}
+				  CellNumber: {mobileNumber},
+				  DisplayImage: localStorage.getItem("UserImage")
+				
 				  });
 				  
 				// localStorage.setItem("id",docRef.id)

@@ -9,7 +9,7 @@ export default function Profile(){
     const [mobile,setMobile] =useState()
     const [name,setName] = useState()
     const [surname,setSurname] = useState()
-    
+    const [image,setImage] = useState()
     
 useEffect(async () => {
     
@@ -23,8 +23,9 @@ useEffect(async () => {
             setName(docSnap.data().firstName.name)
             setSurname(docSnap.data().lastName.surname)
             setMobile(docSnap.data().CellNumber.mobileNumber)
+            setImage(docSnap.data().DisplayImage)
           } else {
-            // doc.data() will be undefined in this case
+           
             console.log("No such document!");
           } 
     }
@@ -38,9 +39,8 @@ useEffect(async () => {
             <h1>{`Full Name: ${name} ${surname}`}</h1>
             <h1>Mobile Number {mobile}</h1>
             <h1>Profile Page</h1>
+            <img src={`${image}`} alt="" />
             </div>:<Loading/>}
-            
-           
             </div>
         )
 }
