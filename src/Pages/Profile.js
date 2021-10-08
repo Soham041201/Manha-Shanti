@@ -33,13 +33,25 @@ useEffect(async () => {
 },[])
     
     
-    return (       
-        <div className="h-full w-full">
-            {image?<div className="profile-data">
-            <h1>{`Full Name: ${name} ${surname}`}</h1>
-            <h1>Mobile Number {mobile}</h1>
-            <h1>Profile Page</h1>
-            <img src={`${image}`} alt="" />
+    return (    
+        
+        <div className=" p-10 h-full w-full bg-back-pattern bg-no-repeat"> 
+        
+
+            {image?
+            <div className="profile-data flex">
+            
+          
+           <div className="w-1/4 h-1/4 block-inline "> <img src={`${image}`} className="rounded-full " alt="" /></div>
+           <div className= "data-text block-inline bg-white ml-40 text-3xl">
+                
+           <h1>{`Full Name: ${name} ${surname}`}</h1>
+            <h1>Mobile Number: {mobile}</h1>
+            </div>
+            <div className=" bg-no-repeat bg-center  w-40 pd-40 ml-40 ">
+             {/* <img className="p-40 h-20" id="img" src ="./images/profilep.jpg"alt=""/>  */}
+            </div>
+            
             </div>:<Loading/>}
             </div>
         )

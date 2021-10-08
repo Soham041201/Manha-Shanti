@@ -20,7 +20,7 @@ export default function SignUp() {
         
     }
   return (
-    <div className="login mt-5">
+    <div className="login mt-5 mb-5">
 <div class="flex justify-center items-center">
 	<div class="py-7 px-12 bg-white rounded-2xl shadow-xl z-20">
 		<div>

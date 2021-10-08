@@ -38,8 +38,8 @@ export default function SignUp() {
 
 
   return (
-    <div className="login mt-5">
-<div class="flex justify-center items-center">
+    <div className="login mt-5 mb-5">
+<div class="flex justify-center w-3/4 items-center">
 	<div class="py-7 px-12 bg-white rounded-2xl shadow-xl z-20">
 		<div>
 			<h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Create a new account</h1>
