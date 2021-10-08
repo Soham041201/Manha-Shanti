@@ -1,16 +1,19 @@
-import SignUp from "./SignUp";
-import Home from "./Home";
 import React from "react";
-import Navbar from "./Navbar";
-import Music from "./Music";
-import Podcast from "./Podcast"
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Login from "./Login";
-import Diary from "./Diary";
-import Team from "./Team"
+
+import SignUp from "../Pages/SignUp";
+import Home from "../Pages/Home";
+import Music from "../Pages/Music";
+import Podcast from "../Pages/Podcast"
+import Login from "../Pages/Login";
+import Diary from "../Pages/Diary";
+import Team from "../Pages/Team"
 import ProtectedHomeRoute from "./ProtectedHomeRoute"
+import Profile from "../Pages/Profile";
+
+import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Profile from "./Profile";
+
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 function App() {
   return (
     <Router>

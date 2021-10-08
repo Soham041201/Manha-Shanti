@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { doc, getDoc } from "firebase/firestore"
 import {db} from '../firebase/firebase'
-import Loading from './Loading'
+import Loading from '../components/Loading'
 
 export default function Profile(){
    

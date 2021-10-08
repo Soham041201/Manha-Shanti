@@ -1,5 +1,5 @@
 import React from 'react'
-import TeamCard from './TeamCard'
+import TeamCard from '../components/TeamCard'
 export default function Team() {
     return (
         <div>

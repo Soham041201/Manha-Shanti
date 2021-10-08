@@ -4,7 +4,7 @@ import {Link,useHistory } from "react-router-dom";
 import {register } from '../Auth'
 import {doc,setDoc} from "firebase/firestore"; 
 import {db} from '../firebase/firebase'
-import UploadAndDisplayImage from './ImagePicker'
+import UploadAndDisplayImage from '../components/ImagePicker'
 export default function SignUp() {
 
     const page= useHistory()
