@@ -12,10 +12,7 @@ const Home = () => {
 
             <div className ="w-1/2">
              <img className="p-20 rounded-full"id="img" src ="./images/img1.jpg"alt=""/> 
-            </div>
-
-        
-            
+            </div>    
         </div>
         
     );
