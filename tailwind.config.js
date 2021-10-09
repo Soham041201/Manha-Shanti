@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        //Add a image title here
        'hero-pattern': "url('https://image.freepik.com/free-vector/organic-flat-people-meditating-illustration_23-2148906556.jpg')",
        'back-pattern': "url('https://image.freepik.com/free-vector/village-nature-watercolor-painting-art_452261-278.jpg')" 
     },

@@ -5,9 +5,8 @@ export default function DiaryContent(props){
     const {id} = useParams()
     return (
         <div>
-        
             <article>
-                <h2>{mock.blogs[id].title}</h2>
+                <h2>{mock.blogs.title}</h2>
                 <p>Written on<b>{props.date}</b>.</p>
                 <div>{props.body}</div>
             </article>
