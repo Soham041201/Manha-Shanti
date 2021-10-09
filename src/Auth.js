@@ -1,6 +1,7 @@
 import { getAuth, signInWithEmailAndPassword,signOut,createUserWithEmailAndPassword,signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import app from './firebase/firebase'
 
+
     export async function loginFn(email,password){
       
         const auth = getAuth(app);
@@ -55,7 +56,7 @@ import app from './firebase/firebase'
     }
     const provider = new GoogleAuthProvider();
   
-export async function googleLogin(){
+export async function googleLogin(page){
   const auth = getAuth(app);
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -67,7 +68,6 @@ export async function googleLogin(){
        localStorage.setItem("isAuth",true)
       const data = JSON.stringify(user)
       localStorage.setItem("user",data); 
-  
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

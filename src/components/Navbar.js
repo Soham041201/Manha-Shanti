@@ -46,6 +46,7 @@ export default function Navbar() {
      await logout()
     page.push("/")
   }
+  
   return (
     <div className="sticky">
     <Disclosure as="nav" className="bg-olive green-300 ">
