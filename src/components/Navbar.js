@@ -22,23 +22,27 @@ export default function Navbar() {
 
   const[fname,setfName] = useState("")
   const[image,setImage] = useState("")
+  const[isUser,setIsUser] = useState()
   useEffect(async()=> {
     var data = localStorage.getItem("user")
     const user= JSON.parse(data)
+    setIsUser(user)
+    console.log(user);
     if(user!==null){
       const docRef = doc(db, "users",user.email)
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
           console.log(docSnap.data());
-          setfName(`Welcome, ${docSnap.data().firstName.name}`)
+          setfName(`Welcome, ${docSnap.data().firstName.name || user.email}`)
           setImage(docSnap.data().DisplayImage)
         } else {
-          // doc.data() will be undefined in this case
+          setfName(`Welcome, ${user.displayName}`)
+          setImage(user.photoURL)
           console.log("No such document!");
         }
     }
     
-  },)
+  },[])
   
   const page= useHistory()
   const handleLogout=async(e)=>{
@@ -129,7 +133,7 @@ export default function Navbar() {
                             onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
                           >
-                           {fname?"Logout":"Login"}
+                           {isUser?"Logout":"Login"}
                           </a>
                         )}
                       </Menu.Item>

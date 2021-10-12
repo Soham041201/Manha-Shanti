@@ -9,18 +9,27 @@ import Diary from "../Pages/Diary";
 import Team from "../Pages/Team"
 import ProtectedHomeRoute from "./ProtectedHomeRoute"
 import Profile from "../Pages/Profile";
-
+import app from '../firebase/firebase'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch,Redirect  } from "react-router-dom";
-function App() {
-  const [auth,setAuth] = useState()
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-  useEffect(()=>{
-    const login = localStorage.getItem("isAuth")
-    setAuth(login)
-  },[])
+
+function App() {
+  const [isLogin,setisLogin] = useState(false)
+  const auth = getAuth(app);
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    console.log(user);
+    return setisLogin(true)
+  } else {
+    return setisLogin(false)
+  }
+});
+
   return (
     <Router>
       <Navbar/>
@@ -33,7 +42,7 @@ function App() {
           <Route exact path="/podcast" component={Podcast}/>
           <Route exact path="/diary" component={Diary}/>
           <Route exact path="/register" component={SignUp}/>
-          <Route exact path="/login" component={Login}/>  
+        {isLogin?<Redirect to="/"/>:<Route exact path="/login" component={Login}/>}  
         </Switch> 
       </div>
       <Footer/>

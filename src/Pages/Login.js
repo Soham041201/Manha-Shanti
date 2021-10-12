@@ -12,9 +12,7 @@ export default function SignUp() {
     	e.preventDefault();
         loginFn(email, password).then(async ()=> {
 			if(loginFn(email, password)!==null){
-				
 				page.push("/")
-	
 			}
 		})
         
@@ -22,7 +20,7 @@ export default function SignUp() {
 
 	
 	const handleGoogleLogin= ()=>{
-		googleLogin() 			
+		googleLogin()
 	}
 	
 	
