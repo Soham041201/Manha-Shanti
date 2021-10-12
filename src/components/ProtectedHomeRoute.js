@@ -8,7 +8,7 @@ export default function ProtectedHomeRoute({component: Component, ...rest}) {
                 if("true" ===localStorage.getItem("isAuth")){
                     return <Component {...props}/>
                 }
-                return <Redirect to="/"/>
+                return <Redirect to="/login"/>
             }
         }/>
     )

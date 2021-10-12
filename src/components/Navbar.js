@@ -7,7 +7,7 @@ import { doc, getDoc } from "firebase/firestore"
 import {db} from '../firebase/firebase'
 import { logout } from '../Auth'
 const navigation = [
-  { name: 'Home', href: '/home', current: false },
+  { name: 'Home', href: '/', current: false },
   { name: 'Team', href: '/team', current: false },
   { name: 'Podcasts', href: '/podcast', current: false },
   { name: 'Music', href: '/music', current: false },
@@ -125,7 +125,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                          href="/"
+                          href="/login"
                             onClick={handleLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-7 00')}
                           >

@@ -1,6 +1,6 @@
 
-import React,{useState} from "react";
-import {Link,useHistory } from "react-router-dom";
+import React,{useState,useEffect} from 'react';
+import {Link,useHistory} from "react-router-dom";
 import { googleLogin, loginFn } from '../Auth'
 
 export default function SignUp() {
@@ -13,17 +13,19 @@ export default function SignUp() {
         loginFn(email, password).then(async ()=> {
 			if(loginFn(email, password)!==null){
 				
-				page.push("/home")
-			
+				page.push("/")
+	
 			}
 		})
         
     }
-	const handleGoogleLogin=async (e)=>{	
-		e.preventDefault();
-		await googleLogin()
-				page.push("/home")	
+
+	
+	const handleGoogleLogin= ()=>{
+		googleLogin() 			
 	}
+	
+	
   return (
     <div className="login mt-5 mb-5">
 <div class="flex justify-center items-center">
