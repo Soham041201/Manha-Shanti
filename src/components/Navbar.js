@@ -37,6 +37,7 @@ export default function Navbar() {
           setImage(docSnap.data().DisplayImage)
         } else {
           setfName(`Welcome, ${user.displayName}`)
+          console.log(user.photoURL);
           setImage(user.photoURL)
           console.log("No such document!");
         }
