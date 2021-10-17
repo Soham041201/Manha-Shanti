@@ -41,8 +41,8 @@ onAuthStateChanged(auth, (user) => {
           <Route exact path="/music" component={Music}/>
           <Route exact path="/team" component={Team}/>
           <Route exact path="/podcast" component={Podcast}/>
-          <Route exact path="/diary" component={Diary}/>
-          <Route exact path="/diary/create" component={DiaryCreate}/>
+          <ProtectedHomeRoute exact path="/diary" component={Diary}/>
+          <ProtectedHomeRoute exact path="/diary/create" component={DiaryCreate}/>
           <Route exact path="/register" component={SignUp}/>
        
         {isLogin?<Redirect to="/"/>:<Route exact path="/login" component={Login}/>}  
