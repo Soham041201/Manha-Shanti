@@ -34,12 +34,13 @@ useEffect( ()=>{
 
   return (
     <Router>
-      <div style={{ display: "flex" }}>
-        <div>
+      <div style={{ display: "flex"}}>
+        <div className="bg-green-300 h-screen m-4 rounded-xl">
           <DiaryList blogs={blogs}/>
         </div>
         <div style={{ flex: 1, padding: "10px" }}>
-        <button className="p-1 bg-blue-100 rounded-xl m-10" onClick={handleClick}>Create a new entry</button>
+          <h1 className="text-3xl ">Your Diary</h1>
+        <button className="p-1 bg-blue-100 rounded-xl mt-5" onClick={handleClick}>Create a new entry</button>
           <DiaryDetail blogs={blogs} />
         </div>
       </div>
