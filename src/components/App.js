@@ -15,6 +15,7 @@ import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch,Redirect  } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import DiaryCreate from "../Pages/DiaryCreate";
 
 
 function App() {
@@ -41,7 +42,9 @@ onAuthStateChanged(auth, (user) => {
           <Route exact path="/team" component={Team}/>
           <Route exact path="/podcast" component={Podcast}/>
           <Route exact path="/diary" component={Diary}/>
+          <Route exact path="/diary/create" component={DiaryCreate}/>
           <Route exact path="/register" component={SignUp}/>
+       
         {isLogin?<Redirect to="/"/>:<Route exact path="/login" component={Login}/>}  
         </Switch> 
       </div>
