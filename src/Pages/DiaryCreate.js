@@ -6,8 +6,8 @@ export default function DiaryCreate() {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [body, setBody] = useState("");
-  const history = useHistory();
   const page = useHistory();
+  
   
   useEffect(()=>{
     var data = localStorage.getItem("user");
@@ -24,7 +24,8 @@ export default function DiaryCreate() {
         date: `${year.toDateString()}`,
         exact: true,
         body:`${body}`,
-        author:`${email}`
+        author:`${email}`,
+        time: `${year.getHours()}:${year.getMinutes()}`
         });
         } catch (e) {
       console.error("Error adding document: ", e);

@@ -5,6 +5,6 @@ import Box from '@mui/material/Box';
 export default function Loading() {
   return (
     <Box className="" sx={{ display: 'flex' }}>
-      <CircularProgress color="success"/>
+      <CircularProgress />
     </Box>
   );}

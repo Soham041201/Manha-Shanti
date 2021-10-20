@@ -11,7 +11,18 @@ export default function DiaryDetail({ blogs }) {
             key={index}
             path={`/diary/${index}`}
             exact={route.exact}
-            children={<div>{route.body}</div>}
+            children={
+            <div>
+              <div className="text-3xl">
+                {route.title}
+              </div>
+              <div>{route.date}</div>
+              <div className="mb-5">{route.time}</div>
+              <div>
+              {route.body}
+              </div>
+              
+              </div>}
           />
         ))}
       </Switch>
