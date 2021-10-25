@@ -39,7 +39,7 @@ useEffect( ()=>{
         </div>
         <div className="inline-block w-7/8 ">
           <h1 className="text-3xl ">Your Diary</h1>
-        <button className="p-1 bg-blue-100 rounded-xl mt-5" onClick={handleClick}>Create a new entry</button>
+        <button className="p-2 bg-blue-100 rounded-l mt-5" onClick={handleClick}>New Entry</button>
           <DiaryDetail blogs={blogs} />
         </div>
       </div>:<Loading/>}

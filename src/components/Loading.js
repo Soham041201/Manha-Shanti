@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 export default function Loading() {
   return (
-    <Box className="" sx={{ display: 'flex' }}>
-      <CircularProgress />
+    <Box className="ml-14 mt-5" sx={{ display: 'flex' }}>
+      <CircularProgress color="secondary"/>
     </Box>
   );}
