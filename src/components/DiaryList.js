@@ -13,7 +13,7 @@ export default function DiaryList({ blogs }) {
         <div key={route.id} className="p-2 bg-red-100 m-3 rounded-l">
           <Link to={`/diary/${index}`}>
             <h1>{route.date}</h1>
-            <h3>{route.title}</h3>
+            <h3>{route.time}</h3>
           </Link>
         </div>
       )):<Loading/>}

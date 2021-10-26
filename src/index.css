@@ -2,7 +2,7 @@
 @tailwind components; 
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
-  
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 body {
   margin: 0;
@@ -83,4 +83,16 @@ code {
   background-color: rgb(208, 228, 208);
   padding:5px;
   text-align: center
+}
+.input{
+  background-color:#B1E693;
+  font-family: 'Architects Daughter', cursive;
+  color:rgb(14, 117, 131)
+}
+.input:focus{
+  outline: none;
+}
+.diary{
+  font-family: 'Architects Daughter', cursive;
+  color:rgb(14, 117, 131)
 }

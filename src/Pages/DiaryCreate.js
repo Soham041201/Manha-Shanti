@@ -34,18 +34,19 @@ export default function DiaryCreate() {
   }
   return (
     <div className="create">
-      <h1>Create a new Diary Entry</h1>
-      <form onSubmit={handleUpload}>
-        <label>Blog title:</label>
+      <h1 className="text-4xl">Create a new Diary Entry</h1>
+      <form onSubmit={handleUpload} className="text-center">
         <input
           type="text"
           required
           value={title}
+          placeholder="Title"
+          className="text-3xl  input"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Blog body</label>
-        <textarea className="m-2" required onChange={(e) => setBody(e.target.value)}></textarea>
-        <button className="p-1 bg-blue-100 rounded-xl ml-10" >Submit</button>
+        <br/>
+        <textarea className=" text-3xl input mt-5"  placeholder="Body" required onChange={(e) => setBody(e.target.value)}/>  <br/>
+        <button className="p-1 bg-blue-100 rounded-xl" >Create a New Entry</button>
       </form>
     </div>
   );

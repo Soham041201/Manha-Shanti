@@ -4,7 +4,7 @@ export default function DiaryDetail({ blogs }) {
 
 
   return (
-    <div>
+    <div className="ml-10">
       <Switch>
         {blogs.map((route, index) => (
           <Route
@@ -13,12 +13,12 @@ export default function DiaryDetail({ blogs }) {
             exact={route.exact}
             children={
             <div>
-              <div className="text-3xl">
+              <div className="text-3xl diary">
                 {route.title}
               </div>
-              <div>{route.date}</div>
-              <div className="mb-5">{route.time}</div>
-              <div>
+              <div className="diary">{route.date}</div>
+              <div className="mb-5 diary">{route.time}</div>
+              <div className="w-3/4 text-xl diary">
               {route.body}
               </div>
               

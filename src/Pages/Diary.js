@@ -33,7 +33,7 @@ useEffect( ()=>{
 
   return (
     <Router>
-      {blogs?<div className="inline-flex space-x-2">
+      {blogs[0]?<div className="inline-flex space-x-2">
         <div className="inline-block w-1/7">
           <DiaryList blogs={blogs}/>
         </div>
