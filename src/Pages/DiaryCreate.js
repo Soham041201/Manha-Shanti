@@ -13,7 +13,7 @@ export default function DiaryCreate() {
     var data = localStorage.getItem("user");
     const user = JSON.parse(data);
     setEmail(user.email)
-  })
+  },[])
   
   const handleUpload=async(e)=>{
       e.preventDefault();

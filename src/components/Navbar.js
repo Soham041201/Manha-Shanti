@@ -22,25 +22,29 @@ export default function Navbar() {
   const [fname, setfName] = useState("");
   const [image, setImage] = useState("");
   const [isUser, setIsUser] = useState();
-  useEffect(async () => {
-    var data = localStorage.getItem("user");
-    const user = JSON.parse(data);
-    setIsUser(user);
-    console.log(user);
-    if (user !== null) {
-      const docRef = doc(db, "users", user.email);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        console.log(docSnap.data());
-        setfName(`Welcome, ${docSnap.data().firstName.name || user.email}`);
-        setImage(docSnap.data().DisplayImage);
-      } else {
-        setfName(`Welcome, ${user.displayName}`);
-        console.log(user.photoURL);
-        setImage(user.photoURL);
-        console.log("No such document!");
+  useEffect(() => {
+    fetch()
+    async function fetch(){
+      var data = localStorage.getItem("user");
+      const user = JSON.parse(data);
+      setIsUser(user);
+      console.log(user);
+      if (user !== null) {
+        const docRef = doc(db, "users", user.email);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          console.log(docSnap.data());
+          setfName(`Welcome, ${docSnap.data().firstName.name || user.email}`);
+          setImage(docSnap.data().DisplayImage);
+        } else {
+          setfName(`Welcome, ${user.displayName}`);
+          console.log(user.photoURL);
+          setImage(user.photoURL);
+          console.log("No such document!");
+        }
       }
     }
+ 
   }, []);
 
   const page = useHistory();
