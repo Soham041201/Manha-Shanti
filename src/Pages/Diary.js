@@ -33,16 +33,16 @@ useEffect( ()=>{
 
   return (
     <Router>
-      {blogs[0]?<div className="inline-flex space-x-2">
+      <div className="inline-flex space-x-2">
         <div className="inline-block w-1/7">
           <DiaryList blogs={blogs}/>
         </div>
         <div className="inline-block w-7/8 ">
-          <h1 className="text-3xl ">Your Diary</h1>
-        <button className="p-2 bg-blue-100 rounded-l mt-5" onClick={handleClick}>New Entry</button>
+          <h1 className="text-9xl ml-12">WELCOME!</h1>
+        <button className="p-2 bg-green-100 rounded-l mt-5" onClick={handleClick}>New Entry</button>
           <DiaryDetail blogs={blogs} />
         </div>
-      </div>:<Loading/>}
+      </div>
          </Router>
   );
 }

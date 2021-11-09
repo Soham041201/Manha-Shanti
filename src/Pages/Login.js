@@ -25,9 +25,10 @@ export default function SignUp() {
 	
 	
   return (
-    <div className="login mt-5 mb-5">
+    <div className="login mt-5 mb-5 ">
 <div class="flex justify-center items-center">
 	<div class="py-7 px-12 bg-white rounded-2xl shadow-xl z-20">
+	<div className="p-10 mr-90 w-full h-full bg-no-repeat"></div>
 		<div>
 			<h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Login  into your account</h1>
 			<p class="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">Login into your account using your registered email and password</p>
