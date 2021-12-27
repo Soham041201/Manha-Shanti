@@ -11,7 +11,7 @@ const Player = ()=> {
   const [songs,setSongs] = useState([]);
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [currentSongIndex,setCurrentSongIndex] = useState(0);
+    let currentSongIndex =0;
     
 
 
@@ -32,7 +32,6 @@ const Player = ()=> {
     useEffect(()=>{
       handleList()
         if(isPlaying){
-          
             audioEl.current.play();
         }else{
             audioEl.current.pause();
@@ -40,11 +39,18 @@ const Player = ()=> {
     },[isPlaying]);
 
 
-    const SkipSong = (forwards=true) =>{
-        if(forwards){
-            setCurrentSongIndex(currentSongIndex+1);
+    const SkipSong = (forwards) =>{
+        if(true){
+          if(currentSongIndex === songs.length-1){
+            currentSongIndex = 0;
+            
+          }
+          currentSongIndex =  currentSongIndex+1
         }else{
-           setCurrentSongIndex(currentSongIndex-1);
+            if(currentSongIndex === 0){
+              currentSongIndex = songs.length-1;
+            }
+            currentSongIndex =  currentSongIndex-1
     }}
     return (
        <Box >
