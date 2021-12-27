@@ -36,16 +36,18 @@ const Player = ()=> {
         }else{
             audioEl.current.pause();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isPlaying]);
 
 
     const SkipSong = (forwards) =>{
-        if(true){
+        if(forwards){
           if(currentSongIndex === songs.length-1){
             currentSongIndex = 0;
             
+          }else{
+            currentSongIndex =  currentSongIndex+1;
           }
-          currentSongIndex =  currentSongIndex+1
         }else{
             if(currentSongIndex === 0){
               currentSongIndex = songs.length-1;

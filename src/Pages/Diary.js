@@ -4,9 +4,8 @@ import { BrowserRouter as Router ,useHistory} from "react-router-dom";
 import DiaryDetail from "../components/DiaryDetail";
 import DiaryList from "../components/DiaryList";
 import { collection, query,onSnapshot } from "firebase/firestore";
-import Loading from "../components/Loading";
 export default function Diary() {
-  const [flag,setFlag] = useState(false)
+ 
   const q = query(collection(db, "diary"));
   const [blogs,setBlogs]= useState([])
   const page = useHistory()
@@ -22,10 +21,7 @@ useEffect( ()=>{
       if(doc.data().author ===user.email){
         blogs.push(doc.data());
       }
-               
-        // console.log(doc.data());
     });
-    setFlag(true)
    setBlogs(blogs);
   },[blogs]);
   

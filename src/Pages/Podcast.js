@@ -2,14 +2,14 @@ import React,{useEffect} from 'react'
 import { getStorage, ref, listAll,getDownloadURL } from "firebase/storage";
 
 
-export default function Podcast() {
+const Podcast = ()=> {
   
     const storage = getStorage();
 
     const songs = []
 useEffect(()=>{
     handleList()
-},[])
+},)
 const handleList = async () => {
     const listRef = ref(storage, '/songs');
     await listAll(listRef)
@@ -36,3 +36,5 @@ console.log(songs);
         </div>
     )
 }
+
+export default Podcast
