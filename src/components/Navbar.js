@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -6,47 +5,43 @@ import { useHistory } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import { logout } from "../Auth";
-const navigation = [
-  { name: "Home", href: "/", current: false },
-  { name: "Team", href: "/team", current: false },
-  { name: "Podcasts", href: "/podcast", current: false },
-  { name: "Music", href: "/music", current: false },
-  { name: "Diary", href: "/diary", current: false },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-export default function Navbar() {
+const Navbar = () => {
   const [fname, setfName] = useState("");
   const [image, setImage] = useState("");
   const [isUser, setIsUser] = useState();
-  useEffect(() => {
-    fetch()
-    async function fetch(){
-      var data = localStorage.getItem("user");
-      const user = JSON.parse(data);
-      setIsUser(user);
-      console.log(user);
-      if (user !== null) {
-        const docRef = doc(db, "users", user.email);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          console.log(docSnap.data());
-          setfName(`Welcome, ${docSnap.data().firstName.name || user.email}`);
-          setImage(docSnap.data().DisplayImage);
-        } else {
-          setfName(`Welcome, ${user.displayName}`);
-          console.log(user.photoURL);
-          setImage(user.photoURL);
-          console.log("No such document!");
-        }
+
+  
+ useEffect(() => {fetch()} , [])
+
+  const navigation = [
+    { name: "Home", href: "/", current:false  },
+    { name: "Team", href: "/team", current: false },
+    { name: "Podcasts", href: "/podcast", current: false },
+    { name: "Music", href: "/music", current: false },
+    { name: "Diary", href: "/diary", current: false },
+  ];
+
+  const fetch = async () => {
+    var data = localStorage.getItem("user");
+    const user = JSON.parse(data);
+    setIsUser(user);
+    if (user !== null) {
+      const docRef = doc(db, "users", user.email);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setfName(`Welcome, ${docSnap.data().firstName.name || user.email}`);
+        setImage(docSnap.data().DisplayImage);
+      } else {
+        setfName(`Welcome, ${user.displayName}`);
+        setImage(user.photoURL);
+        console.log("No such document!");
       }
     }
- 
-  }, []);
-
+  };
   const page = useHistory();
   const handleLogout = async (e) => {
     localStorage.clear();
@@ -187,4 +182,6 @@ export default function Navbar() {
       </Disclosure>
     </div>
   );
-}
+};
+
+export default Navbar;

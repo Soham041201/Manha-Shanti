@@ -37,8 +37,8 @@ useEffect( ()=>{
         <div className="inline-block w-1/7">
           <DiaryList blogs={blogs}/>
         </div>
-        <div className="inline-block w-7/8 ">
-          <h1 className="text-9xl ml-12">WELCOME!</h1>
+        <div className="inline-block w-7/8">
+          <h1 className="text-4xl ml-12">Welcome to your diary page!</h1>
         <button className="p-2 bg-green-100 rounded-l mt-5" onClick={handleClick}>New Entry</button>
           <DiaryDetail blogs={blogs} />
         </div>

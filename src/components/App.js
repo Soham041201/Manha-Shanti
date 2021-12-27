@@ -24,7 +24,6 @@ function App() {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-    console.log(user);
     return setisLogin(true)
   } else {
     return setisLogin(false)

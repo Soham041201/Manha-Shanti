@@ -7,7 +7,7 @@ export default function App() {
 
   function handleChange(e) {
     debugger;
-    setFile(e.target.files[0])
+    setFile(e.target.files[0]);
   }
 
   function handleUpload(e) {
@@ -15,13 +15,12 @@ export default function App() {
     const refer = ref(storage, `/images/${file.name}`);
     uploadBytes(refer, file)
       .then((snapshot) => {
-        debugger;
         console.log("Uploaded a blob or file!");
       })
       .then(() => {
         getDownloadURL(ref(storage, `images/${file.name}`)).then((url) => {
-          console.log(url);
-          localStorage.setItem("UserImage",url)
+          // console.log(url);
+          localStorage.setItem("UserImage", url);
           setURL(url);
         });
       });
@@ -30,8 +29,12 @@ export default function App() {
   return (
     <div>
       <form onSubmit={handleUpload}>
-        <input type="file" onChange={handleChange} />
-        <button className ="text-blue-500" onClick={handleUpload} disabled={!file}>
+        <input required type="file" onChange={handleChange} />
+        <button
+          className="text-blue-500"
+          onClick={handleUpload}
+          disabled={!file}
+        >
           Upload your Image to manha shanti
         </button>
       </form>

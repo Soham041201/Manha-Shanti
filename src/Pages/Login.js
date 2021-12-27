@@ -1,7 +1,7 @@
 
-import React,{useState,useEffect} from 'react';
-import {Link,useHistory} from "react-router-dom";
-import { googleLogin, loginFn } from '../Auth'
+import React, { useState } from 'react';
+import { Link, useHistory } from "react-router-dom";
+import { googleLogin, loginFn } from '../Auth';
 
 export default function SignUp() {
 
@@ -14,15 +14,8 @@ export default function SignUp() {
 			if(loginFn(email, password)!==null){
 				page.push("/")
 			}
-		})
-        
+		})    
     }
-
-	
-	const handleGoogleLogin= ()=>{
-		googleLogin()
-	}
-	
 	
   return (
     <div className="login mt-5 mb-5 ">
@@ -40,7 +33,7 @@ export default function SignUp() {
 			<button class="transition duration-500 ease-in-out hover:bg-purple-400 tranform hover:-translate-y-1 hover:scale-110  py-3 w-64 text-xl mt-3 ml-7 text-white bg-purple-700 rounded-2xl"  href="/home" type="submit">Login</button>
 			</form>
 			<center>
-			<button  onClick={handleGoogleLogin}><img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Sigin" id="google-logo"/></button>
+			<button  onClick={googleLogin}><img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Sigin" id="google-logo"/></button>
 			</center>
 	</div>
 
