@@ -11,7 +11,7 @@ const Player = ()=> {
   const [songs,setSongs] = useState([]);
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    let currentSongIndex =0;
+    const [currentSongIndex, setCurrentSongIndex] = useState(0);
     
 
 
@@ -40,19 +40,28 @@ const Player = ()=> {
     },[isPlaying]);
 
 
-    const SkipSong = (forwards) =>{
-        if(forwards){
-          if(currentSongIndex === songs.length-1){
-            currentSongIndex = 0;
-            
-          }else{
-            currentSongIndex =  currentSongIndex+1;
-          }
-        }else{
-            if(currentSongIndex === 0){
-              currentSongIndex = songs.length-1;
+    const SkipSong = (forwards = true) => {
+      if(forwards){
+        setCurrentSongIndex(()=>{
+            let temp = currentSongIndex;
+            temp++;
+            if(temp> songs.length -1){
+                temp =0;
             }
-            currentSongIndex =  currentSongIndex-1
+
+            return temp;
+        })
+    }else{
+        setCurrentSongIndex(()=>{
+            let temp = currentSongIndex;
+            temp--;
+
+            if(temp<0 ){
+                temp =songs.length -1;
+            }
+
+            return temp;
+        });
     }}
     return (
        <Box >
@@ -88,7 +97,7 @@ const Player = ()=> {
               <PauseOutlinedIcon sx={{ color: 'white' }} />
             )}
           </Button>
-          <Button onClick={() => SkipSong(true)}>
+          <Button onClick={() => SkipSong()}>
             <SkipNextIcon sx={{ color: 'white' }} />
           </Button>
            </Box>
