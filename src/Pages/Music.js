@@ -17,10 +17,6 @@ const Music = () => {
   const getData = async () => {
     const querySnapshot = await getDocs(collection(db, "tracks"));
 
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-    });
-
     setSongs(querySnapshot.docs.map((doc) => doc.data()));
   };
 
@@ -35,7 +31,6 @@ const Music = () => {
       setIsUpload(true);
       getDownloadURL(ref(storage, snapshot.ref._location.path_))
         .then(async (url) => {
-          console.log(url);
           await setDoc(doc(db, "tracks", `${file.name}`), {
             trackName: file.name,
             url: url,
@@ -44,7 +39,6 @@ const Music = () => {
         .catch((error) => {
           console.log(error);
         });
-      console.log("Uploaded a file!");
     });
   }
 
@@ -69,7 +63,6 @@ const Music = () => {
       <h1>Please help us by conributing the music you have</h1>
       <button
         onClick={() => {
-          console.log(songs);
           setIsUploadVisible(!isUploadVisible);
         }}
         className="bg-green-400 p-1 m-3 rounded"
