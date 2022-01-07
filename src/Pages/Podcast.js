@@ -45,7 +45,31 @@ const Podcast= () => {
 
   return (
     <div>
+          <h1>Please help us by conributing the podcast you have</h1>
+      <button
+        onClick={() => {
+          console.log(songs);
+          setIsUploadVisible(!isUploadVisible);
+        }}
+        className="bg-green-400 p-1 m-3 rounded"
+      >
+        Add Podcasts
+      </button>
+         {isUploadVisible && (
+        <form onSubmit={handleUpload}>
+          <input required type="file" onChange={handleChange} accept=".mp3" />
+          <button
+            className="text-blue-500"
+            onClick={handleUpload}
+            disabled={!file}
+            type="submit"
+          >
+            {isUpload ? `File Uploaded` : `Upload`}
+          </button>
+        </form>
+      )}
       <Player songs={songs} />
+      <Box sx={{display:'flex'}}>
       {songs &&
         songs.map((song) => (
           <Box
@@ -61,29 +85,10 @@ const Podcast= () => {
             {song.trackName}
           </Box>
         ))}
-      <h1>Please help us by conributing the podcast you have</h1>
-      <button
-        onClick={() => {
-          console.log(songs);
-          setIsUploadVisible(!isUploadVisible);
-        }}
-        className="bg-green-400 p-1 m-3 rounded"
-      >
-        Add music
-      </button>
-      {isUploadVisible && (
-        <form onSubmit={handleUpload}>
-          <input required type="file" onChange={handleChange} accept=".mp3" />
-          <button
-            className="text-blue-500"
-            onClick={handleUpload}
-            disabled={!file}
-            type="submit"
-          >
-            {isUpload ? `File Uploaded` : `Upload`}
-          </button>
-        </form>
-      )}
+    
+      </Box>
+    
+     
     </div>
   );
 };

@@ -4,6 +4,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -59,6 +60,7 @@ const Player = ({ songs }) => {
           p: 1,
         }}
       >
+        <Typography>{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>
         <Button onClick={() => SkipSong(false)}>
           <SkipPreviousIcon sx={{ color: "white" }} />
         </Button>

@@ -43,23 +43,7 @@ const Music = () => {
   }
 
   return (
-    <div>
-      <Player songs={songs} />
-      {songs &&
-        songs.map((song) => (
-          <Box
-            sx={{
-              backgroundColor: "#4caf50",
-              width: "200px",
-              m: 4,
-              p: 2,
-              borderRadius: "20px",
-            }}
-            key={songs[song]}
-          >
-            {song.trackName}
-          </Box>
-        ))}
+   <Box sx={{height:'200px'}}>    
       <h1>Please help us by conributing the music you have</h1>
       <button
         onClick={() => {
@@ -82,7 +66,25 @@ const Music = () => {
           </button>
         </form>
       )}
-    </div>
+        <Player songs={songs} />
+        <Box sx={{overflow: "auto",height:'400px'}}>
+      {songs &&
+        songs.map((song) => (
+          <Box
+            sx={{
+              backgroundColor: "#4caf50",
+              width: "500px",
+              m: 4,
+              p: 2,
+              borderRadius: "20px",
+            }}
+            key={songs[song]}
+          >
+            {song.trackName}
+          </Box>
+        ))}
+        </Box>
+    </Box>
   );
 };
 
