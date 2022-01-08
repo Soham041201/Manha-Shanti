@@ -61,7 +61,7 @@ const Player = ()=> {
               display:'flex',
               m:0,
               p:1,
-              backgroundColor:'gray',
+              backgroundColor:'#09323B',
            }}>
            <Button onClick={() => SkipSong(false)}>
             <SkipPreviousIcon sx={{ color: 'white' }} />
