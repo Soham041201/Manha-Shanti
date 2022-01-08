@@ -41,7 +41,7 @@ const Player = ({ songs }) => {
       sx={{
         position: "fixed",
         width: "100%",
-        bottom: 64,
+        bottom: 0,
         px: 2,
         background: "rgba(20, 20, 20, 0.4)",
         height: 97,
@@ -61,6 +61,7 @@ const Player = ({ songs }) => {
         }}
       >
         <Typography>{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>
+        <Box>
         <Button onClick={() => SkipSong(false)}>
           <SkipPreviousIcon sx={{ color: "white" }} />
         </Button>
@@ -91,6 +92,8 @@ const Player = ({ songs }) => {
         <Button onClick={() => SkipSong()}>
           <SkipNextIcon sx={{ color: "white" }} />
         </Button>
+        </Box>
+      
       </Box>
     </Box>
   );

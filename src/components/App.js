@@ -46,7 +46,7 @@ onAuthStateChanged(auth, (user) => {
         {isLogin?<Redirect to="/"/>:<Route exact path="/login" component={Login}/>}  
         </Switch> 
       </div>
-      <Footer/>
+      
     </Router>
   );
 }

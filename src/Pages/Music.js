@@ -16,7 +16,6 @@ const Music = () => {
   const [songs, setSongs] = useState([]);
   const getData = async () => {
     const querySnapshot = await getDocs(collection(db, "tracks"));
-
     setSongs(querySnapshot.docs.map((doc) => doc.data()));
   };
 
@@ -43,7 +42,7 @@ const Music = () => {
   }
 
   return (
-   <Box sx={{height:'200px'}}>    
+   <Box sx={{height:'400px'}}>    
       <h1>Please help us by conributing the music you have</h1>
       <button
         onClick={() => {
