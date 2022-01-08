@@ -1,22 +1,26 @@
+import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
-
 export default function DiaryList({ blogs }) {
   
   
   return (
-    <div className="rounded-xl bg-white ml-10 p-2 h-screen w-48">
-      <h1 className="text-2xl mb-2 mt-3">Diary List</h1>
+    <Box sx={{overflow:'auto',ml:1, borderRadius:'20px',width:'300px'}}>
       <hr/>
-      {blogs[0]?blogs.map((route, index) => (
-        <div key={route.id} className="p-2 bg-red-100 m-3 rounded-l">
+      <Box sx={{overflow:'auto',height:'450px',backgroundColor:'#ECF87F'}}>
+      {blogs ? blogs.map((route, index) => (  
+        <div key={route.id} className="p-2 bg-white m-3 rounded-l">
           <Link to={`/diary/${index}`}>
             <h1>{route.date}</h1>
             <h3>{route.time}</h3>
           </Link>
         </div>
       )):<Loading/>}
-    </div>
+      </Box>
+      
+  
+    </Box>
+  
   );
 } 

@@ -1,26 +1,44 @@
-import { getDownloadURL, getStorage, listAll, ref, uploadBytes } from "firebase/storage";
-import React, { useState,useEffect } from "react";
-import Player from '../components/Player'
-import Box from '@mui/material/Box';
-
-const  Music = ()=> {
+import Box from "@mui/material/Box";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import React, { useEffect, useState } from "react";
+import Player from "../components/Player";
+import { db } from "../firebase/firebase";
+const Music = () => {
   const storage = getStorage();
-  const songs = []
+
   const [file, setFile] = useState(null);
-  const [isUpload,setIsUpload] = useState(false);
-  const  [isUploadVisible,setIsUploadVisible] = useState(false);
+  const [isUpload, setIsUpload] = useState(false);
+  const [isUploadVisible, setIsUploadVisible] = useState(false);
   function handleChange(e) {
     setFile(e.target.files[0]);
   }
+  const [songs, setSongs] = useState([]);
+  const getData = async () => {
+    const querySnapshot = await getDocs(collection(db, "tracks"));
+    setSongs(querySnapshot.docs.map((doc) => doc.data()));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   function handleUpload(e) {
     e.preventDefault();
     const refer = ref(storage, `/songs/${file.name}`);
-    uploadBytes(refer, file)
-      .then((snapshot) => {
-        setIsUpload(true);
-        console.log("Uploaded a file!");
-      })
+    uploadBytes(refer, file).then((snapshot) => {
+      setIsUpload(true);
+      getDownloadURL(ref(storage, snapshot.ref._location.path_))
+        .then(async (url) => {
+          await setDoc(doc(db, "tracks", `${file.name}`), {
+            trackName: file.name,
+            url: url,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   }
 
   return(

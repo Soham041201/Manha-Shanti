@@ -23,7 +23,6 @@ function App() {
   const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    const uid = user.uid;
     return setisLogin(true)
   } else {
     return setisLogin(false)
@@ -47,7 +46,7 @@ onAuthStateChanged(auth, (user) => {
         {isLogin?<Redirect to="/"/>:<Route exact path="/login" component={Login}/>}  
         </Switch> 
       </div>
-      <Footer/>
+      
     </Router>
   );
 }
