@@ -58,12 +58,12 @@ const Player = ({ songs }) => {
           p: 1,
         }}
       >
-        <marquee direction="left" width="400">
+        <Box>
           {" "}
           <Typography
             sx={{ fontFamily: "Luxurious Roman, cursive" }}
           >{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>
-        </marquee>
+        </Box>
 
         <Box sx={{ ml: 20 }}>
           <Button onClick={() => SkipSong(false)}>

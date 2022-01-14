@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-
-import SignUp from "../Pages/SignUp";
-import Home from "../Pages/Home";
-import Music from "../Pages/Music";
-import Podcast from "../Pages/Podcast"
-import Login from "../Pages/Login";
-import Diary from "../Pages/Diary";
-import Team from "../Pages/Team"
-import ProtectedHomeRoute from "./ProtectedHomeRoute"
-import Profile from "../Pages/Profile";
-import app from '../firebase/firebase'
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-
-import { BrowserRouter as Router, Route, Switch,Redirect  } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import app from '../firebase/firebase';
+import Diary from "../Pages/Diary";
 import DiaryCreate from "../Pages/DiaryCreate";
+import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import Music from "../Pages/Music";
+import Podcast from "../Pages/Podcast";
+import Profile from "../Pages/Profile";
+import SignUp from "../Pages/SignUp";
+import Team from "../Pages/Team";
+import Navbar from "./Navbar";
+import ProtectedHomeRoute from "./ProtectedHomeRoute";
+
 
 
 function App() {

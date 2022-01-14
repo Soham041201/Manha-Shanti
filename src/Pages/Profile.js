@@ -1,5 +1,4 @@
 import { Box, Container } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 import { doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
