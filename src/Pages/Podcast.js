@@ -4,7 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import Player from "../components/Player";
 import { db } from "../firebase/firebase";
-const Podcast= () => {
+const Podcast = () => {
   const storage = getStorage();
 
   const [file, setFile] = useState(null);
@@ -45,7 +45,7 @@ const Podcast= () => {
 
   return (
     <div>
-          <h2>Please help us by conributing the podcast you have</h2>
+      <h2>Please help us by conributing the podcast you have</h2>
       <button
         onClick={() => {
           console.log(songs);
@@ -55,7 +55,7 @@ const Podcast= () => {
       >
         Add Podcasts
       </button>
-         {isUploadVisible && (
+      {isUploadVisible && (
         <form onSubmit={handleUpload}>
           <input required type="file" onChange={handleChange} accept=".mp3" />
           <button
@@ -69,26 +69,23 @@ const Podcast= () => {
         </form>
       )}
       <Player songs={songs} />
-      <Box sx={{display:'flex'}}>
-      {songs &&
-        songs.map((song) => (
-          <Box
-            sx={{
-              backgroundColor: "#4caf50",
-              width: "200px",
-              m: 4,
-              p: 2,
-              borderRadius: "20px",
-            }}
-            key={songs[song]}
-          >
-            {song.trackName}
-          </Box>
-        ))}
-    
+      <Box sx={{ display: "flex" }}>
+        {songs &&
+          songs.map((song) => (
+            <Box
+              sx={{
+                backgroundColor: "#4caf50",
+                width: "200px",
+                m: 4,
+                p: 2,
+                borderRadius: "20px",
+              }}
+              key={songs[song]}
+            >
+              {song.trackName}
+            </Box>
+          ))}
       </Box>
-    
-     
     </div>
   );
 };
