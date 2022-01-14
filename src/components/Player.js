@@ -44,7 +44,7 @@ const Player = ({ songs }) => {
         bottom: 0,
         px: 2,
         background: "rgba(20, 20, 20, 0.4)",
-        height: 97,
+        height: 70,
         backdropFilter: "blur(4px)",
         display: "flex",
         flexDirection: "column",
@@ -53,47 +53,49 @@ const Player = ({ songs }) => {
       <audio src={songs[currentSongIndex]?.url} ref={audioEl}></audio>
       <Box
         sx={{
-          justifyContent: "center",
           alignItems: "center",
           display: "flex",
-          m: 2,
           p: 1,
         }}
       >
-        <Typography>{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>
-        <Box>
-        <Button onClick={() => SkipSong(false)}>
-          <SkipPreviousIcon sx={{ color: "white" }} />
-        </Button>
+        <marquee direction="left" width="400">
+          {" "}
+          <Typography
+            sx={{ fontFamily: "Luxurious Roman, cursive" }}
+          >{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>
+        </marquee>
 
-        {songs[currentSongIndex] ? (
-          <Button
-            variant="outlined"
-            sx={{
-              borderColor: "white",
-              mx: 2,
-              p: 1,
-              height: 60,
-              borderRadius: "100%",
-            }}
-            onClick={() => {
-              setIsPlaying(!isPlaying);
-            }}
-          >
-            {!isPlaying ? (
-              <PlayArrowIcon sx={{ color: "white" }} />
-            ) : (
-              <PauseOutlinedIcon sx={{ color: "white" }} />
-            )}
+        <Box sx={{ ml: 20 }}>
+          <Button onClick={() => SkipSong(false)}>
+            <SkipPreviousIcon sx={{ color: "white" }} />
           </Button>
-        ) : (
-          <CircularProgress />
-        )}
-        <Button onClick={() => SkipSong()}>
-          <SkipNextIcon sx={{ color: "white" }} />
-        </Button>
+
+          {songs[currentSongIndex] ? (
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "green",
+                "&:hover": {
+                  backgroundColor: "green",
+                },
+              }}
+              onClick={() => {
+                setIsPlaying(!isPlaying);
+              }}
+            >
+              {!isPlaying ? (
+                <PlayArrowIcon sx={{ color: "white" }} />
+              ) : (
+                <PauseOutlinedIcon sx={{ color: "white" }} />
+              )}
+            </Button>
+          ) : (
+            <CircularProgress />
+          )}
+          <Button onClick={() => SkipSong()}>
+            <SkipNextIcon sx={{ color: "white" }} />
+          </Button>
         </Box>
-      
       </Box>
     </Box>
   );

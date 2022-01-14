@@ -3,7 +3,7 @@ import { db } from "../firebase/firebase";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import DiaryDetail from "../components/DiaryDetail";
 import DiaryList from "../components/DiaryList";
-import Typography from "@mui/material/Typography";
+import { Typography, Container, Box, Button } from "@mui/material";
 import { collection, query, onSnapshot } from "firebase/firestore";
 export default function Diary() {
   const q = query(collection(db, "diary"));
@@ -31,26 +31,31 @@ export default function Diary() {
 
   return (
     <Router>
-      <div className="inline-flex space-x-2">
-        <div className="inline-block w-1/7">
+      <Container sx={{ display: "flex" }}>
+        <Box>
           <DiaryList blogs={blogs} />
-        </div>
-        <div className="inline-block w-7/8">
-          <Typography
-            sx={{ fontFamily: "Luxurious Roman, cursive", fontSize: "32px" }}
-          >
-            {" "}
-            Your Diary
-          </Typography>
-          <button
-            className="p-2 bg-green-100 rounded-l mt-5"
-            onClick={handleClick}
-          >
-            New Entry
-          </button>
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "column", width: "60vw" }}>
+          <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+            <Typography
+              sx={{ fontFamily: "Luxurious Roman, cursive", fontSize: "32px" }}
+            >
+              Your Diary
+            </Typography>
+            <Button
+              sx={{
+                backgroundColor: "#87a96b",
+                "&:hover": { backgroundColor: "#87a96b" },
+              }}
+              variant="contained"
+              onClick={handleClick}
+            >
+              New Entry
+            </Button>
+          </Box>
           <DiaryDetail blogs={blogs} />
-        </div>
-      </div>
+        </Box>
+      </Container>
     </Router>
   );
 }

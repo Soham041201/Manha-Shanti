@@ -15,10 +15,12 @@ const Navbar = () => {
   const [isUser, setIsUser] = useState();
 
   
- useEffect(() => {fetch()} , [])
+ useEffect(() => {fetch()
+
+} , [])
 
   const navigation = [
-    { name: "Home", href: "/", current:false  },
+    { name: "Home", href: "/", current: false   },
     { name: "Team", href: "/team", current: false },
     { name: "Podcasts", href: "/podcast", current: false },
     { name: "Music", href: "/music", current: false },

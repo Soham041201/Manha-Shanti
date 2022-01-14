@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import {doc,setDoc} from "firebase/firestore"; 
 import {db} from '../firebase/firebase'
+import { Container,Box } from "@mui/material";
 export default function DiaryCreate() {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
@@ -33,8 +34,10 @@ export default function DiaryCreate() {
       page.push('/diary')
   }
   return (
-    <div className="create">
-      <h1 className="text-4xl">Create a new Diary Entry</h1>
+    <Container sx={{textAlign:'center'}}>
+
+      <h1>Create a new Diary Entry</h1>
+      <Box sx={{mt:3}}>
       <form onSubmit={handleUpload} className="text-center">
         <input
           type="text"
@@ -48,6 +51,9 @@ export default function DiaryCreate() {
         <textarea className=" text-3xl input mt-5"  placeholder="Body" required onChange={(e) => setBody(e.target.value)}/>  <br/>
         <button className="p-1 bg-blue-100 rounded-xl" >Create a New Entry</button>
       </form>
-    </div>
+        </Box>
+
+     
+    </Container>
   );
 }

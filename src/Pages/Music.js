@@ -4,6 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import Player from "../components/Player";
 import { db } from "../firebase/firebase";
+import image from "../images/banyan-tree.png";
 const Music = () => {
   const storage = getStorage();
 
@@ -20,6 +21,7 @@ const Music = () => {
   };
 
   useEffect(() => {
+   
     getData();
   }, []);
 
@@ -42,7 +44,8 @@ const Music = () => {
   }
 
   return (
-   <Box sx={{height:'400px'}}>    
+   <Box sx={{display:'flex'}}>    
+   <Box sx={{widht:'50%'}}>
       <h1>Please help us by conributing the music you have</h1>
       <button
         onClick={() => {
@@ -83,6 +86,11 @@ const Music = () => {
           </Box>
         ))}
         </Box>
+    </Box>
+    <Box sx={{ml:20,mt:5,width:'50%'}}>
+    <img src={image} alt="BanyanTree" height="100px" width="500px"/>
+    </Box>
+   
     </Box>
   );
 };
