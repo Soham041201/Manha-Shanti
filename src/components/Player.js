@@ -58,8 +58,7 @@ const Player = ({ songs }) => {
           p: 1,
         }}
       >
-        <Box>
-          {" "}
+        <Box sx={{width:'400px'}}>
           <Typography
             sx={{ fontFamily: "Luxurious Roman, cursive" }}
           >{`Now Playing : ${songs[currentSongIndex]?.trackName}`}</Typography>

@@ -46,7 +46,7 @@ const Music = () => {
   return (
    <Box sx={{display:'flex'}}>    
    <Box sx={{widht:'50%'}}>
-      <h1>Please help us by conributing the music you have</h1>
+      <h2>Please help us by conributing the music you have</h2>
       <button
         onClick={() => {
           setIsUploadVisible(!isUploadVisible);

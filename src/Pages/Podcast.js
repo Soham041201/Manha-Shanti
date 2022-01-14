@@ -45,7 +45,7 @@ const Podcast= () => {
 
   return (
     <div>
-          <h1>Please help us by conributing the podcast you have</h1>
+          <h2>Please help us by conributing the podcast you have</h2>
       <button
         onClick={() => {
           console.log(songs);
